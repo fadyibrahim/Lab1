@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>
+  <%= @blogpost.title %>
+</h1>
+<div class="boxed">
+ <%= @blogpost.string %>
+    <% @bpcomments.each do |comment| %>
+      <tr>
+        <td><%= comment.commenttext %></td>
+        <td><%= comment.author %></td>
+        <td><%= comment.blogpost_id %></td>
+        <td><%= link_to 'Show', comment %></td>
+        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
+        <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure' } %></td>
+      </tr>
+    <% end %>
+
+</div>
+
+
+<p>
+  <strong>Contents:</strong>
+  <%= @blogpost.contents %>
+</p>
+
+<%= link_to 'Edit', edit_blogpost_path(@blogpost) %> |
+<%= link_to 'Back', blogposts_path %>

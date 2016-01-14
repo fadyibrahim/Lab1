@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  resources :comments
+  resources :blogposts
+  # comments here
+  #
+    root 'application#hello'
+    get 'hello' => 'application#hello'
+    def show
+    @bpcomments = @blogposts.comments
+    end
+  #
+  # comments here
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
